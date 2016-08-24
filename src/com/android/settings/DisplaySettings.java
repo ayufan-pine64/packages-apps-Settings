@@ -81,6 +81,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_BRIGHTNESS_LIGHT_DEMO = "backlight_demo_mode";
     private static final String KEY_HDMI_OUTPUT_MODE = "hdmi_output_mode";
     private static final String KEY_HDMI_OUTPUT_MODE_720P = "hdmi_output_mode_720p";
+    private static final String KEY_HDMI_OUTPUT_MODE_4K = "hdmi_output_mode_4k";
     private static final String KEY_HDMI_OUTPUT_MODE_CATE = "hdmi_output_mode_cate";
     private static final String KEY_HDMI_FULL_SCREEN = "hdmi_full_screen";
 
@@ -248,14 +249,25 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         final boolean isShowHdmiMode = (sethdmimode & 0x03) > 0;
         final boolean isShow1080p = (sethdmimode & 0x02) > 0;
         final boolean isShowFullScreen = (sethdmimode & 0x04) > 0;
+        final boolean isShow4K = (sethdmimode & 0x08) > 0;
         mHdmiOutputModeCategory = (PreferenceCategory) findPreference(KEY_HDMI_OUTPUT_MODE_CATE);
         mHdmiFullScreen = (CheckBoxPreference)findPreference(KEY_HDMI_FULL_SCREEN);
-        if (isShow1080p) {
+        if (isShow4K) {
             mHdmiOutputModePreference = (ListPreference) findPreference(KEY_HDMI_OUTPUT_MODE_720P);
+            mHdmiOutputModeCategory.removePreference(mHdmiOutputModePreference);
+            mHdmiOutputModePreference = (ListPreference) findPreference(KEY_HDMI_OUTPUT_MODE);
+            mHdmiOutputModeCategory.removePreference(mHdmiOutputModePreference);
+            mHdmiOutputModePreference = (ListPreference) findPreference(KEY_HDMI_OUTPUT_MODE_4K);
+        } else if (isShow1080p) {
+            mHdmiOutputModePreference = (ListPreference) findPreference(KEY_HDMI_OUTPUT_MODE_720P);
+            mHdmiOutputModeCategory.removePreference(mHdmiOutputModePreference);
+            mHdmiOutputModePreference = (ListPreference) findPreference(KEY_HDMI_OUTPUT_MODE_4K);
             mHdmiOutputModeCategory.removePreference(mHdmiOutputModePreference);
             mHdmiOutputModePreference = (ListPreference) findPreference(KEY_HDMI_OUTPUT_MODE);
         } else {
             mHdmiOutputModePreference = (ListPreference) findPreference(KEY_HDMI_OUTPUT_MODE);
+            mHdmiOutputModeCategory.removePreference(mHdmiOutputModePreference);
+            mHdmiOutputModePreference = (ListPreference) findPreference(KEY_HDMI_OUTPUT_MODE_4K);
             mHdmiOutputModeCategory.removePreference(mHdmiOutputModePreference);
             mHdmiOutputModePreference = (ListPreference) findPreference(KEY_HDMI_OUTPUT_MODE_720P);
         }
@@ -572,7 +584,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             Settings.Secure.putInt(getContentResolver(), DOZE_ENABLED, value ? 1 : 0);
         }
 		/* add by allwinner */
-		if (KEY_HDMI_OUTPUT_MODE.equals(key) || KEY_HDMI_OUTPUT_MODE_720P.equals(key)) {
+		if (KEY_HDMI_OUTPUT_MODE.equals(key) || KEY_HDMI_OUTPUT_MODE_720P.equals(key) || KEY_HDMI_OUTPUT_MODE_4K.equals(key)) {
             final int value = Integer.parseInt((String) objValue);
             try {
 				Settings.System.putInt(getContentResolver(), Settings.System.HDMI_OUTPUT_MODE, value);

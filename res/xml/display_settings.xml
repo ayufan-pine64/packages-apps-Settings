@@ -101,8 +101,15 @@
 		            android:title="@string/hdmi_output_mode"
 		            android:summary="@string/hdmi_output_mode_summary"
 		            android:persistent="false"
-		            android:entries="@array/hdmi_output_mode_entries"
-		            android:entryValues="@array/hdmi_output_mode_values" />
+		            android:entries="@array/hdmi_output_mode_1080p_entries"
+		            android:entryValues="@array/hdmi_output_mode_1080p_values" />
+                <ListPreference
+                    android:key="hdmi_output_mode_4k"
+                    android:title="@string/hdmi_output_mode"
+                    android:summary="@string/hdmi_output_mode_summary"
+                    android:persistent="false"
+                    android:entries="@array/hdmi_output_mode_4k_entries"
+                    android:entryValues="@array/hdmi_output_mode_4k_values" />
 				<com.android.settings.ScrapEdgePreference
 		                android:title="@string/screen_scrap_edge"
 						android:summary="@string/screen_scrap_edge_summary"

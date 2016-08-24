@@ -5,10 +5,10 @@
     <string name="screen_off_never_sleep_summary">Never</string>
 
     <!-- hdmi -->
-    <string name="hdmi_setting">hdmi setting</string>
-    <string name="hdmi_output_mode">hdmi output mode</string>
+    <string name="hdmi_setting">HDMI</string>
+    <string name="hdmi_output_mode">HDMI resolution</string>
     <string name="hdmi_output_mode_summary">Set the default HDMI output standard.</string>
-    <string name="hdmi_full_screen">hdmi full screen mode</string>
+    <string name="hdmi_full_screen">HDMI full screen</string>
     <string name="hdmi_full_screen_summary">Set true to show HDMI in full screen mode.</string>
     <string name="screen_scrap_edge">Screen scrap edge</string>
     <string name="screen_scrap_edge_summary">Zooming edging with HDMI output</string>
@@ -25,15 +25,28 @@
         <!-- Do not translate. -->
         <item>5</item>
     </string-array>
-    <string-array name="hdmi_output_mode_entries">
+    <string-array name="hdmi_output_mode_1080p_entries">
         <item>HDMI 720P 60HZ</item>
         <item>HDMI 1080P 60HZ</item>
     </string-array>
-    <string-array name="hdmi_output_mode_values" translatable="false">
+    <string-array name="hdmi_output_mode_1080p_values" translatable="false">
         <!-- Do not translate. -->
         <item>5</item>
         <!-- Do not translate. -->
         <item>10</item>
+    </string-array>
+    <string-array name="hdmi_output_mode_4k_entries">
+        <item>HDMI 720P 60HZ</item>
+        <item>HDMI 1080P 60HZ</item>
+        <item>HDMI 2160P 30HZ</item>
+    </string-array>
+    <string-array name="hdmi_output_mode_4k_values" translatable="false">
+        <!-- Do not translate. -->
+        <item>5</item>
+        <!-- Do not translate. -->
+        <item>10</item>
+        <!-- Do not translate. -->
+        <item>28</item>
     </string-array>
     
     <!-- 3D audio switch -->

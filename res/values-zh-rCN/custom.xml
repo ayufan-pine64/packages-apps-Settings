@@ -18,9 +18,14 @@
         <item>HDMI 720P 50HZ</item>
         <item>HDMI 720P 60HZ</item>
     </string-array>
-    <string-array name="hdmi_output_mode_entries">
+    <string-array name="hdmi_output_mode_1080p_entries">
         <item>HDMI 720P 60HZ</item>
         <item>HDMI 1080P 60HZ</item>
+    </string-array>
+    <string-array name="hdmi_output_mode_4k_entries">
+        <item>HDMI 720P 60HZ</item>
+        <item>HDMI 1080P 60HZ</item>
+        <item>HDMI 2160P 30HZ</item>
     </string-array>
     <!-- bright system -->
     <string name="bright_system">丽色系统</string>
